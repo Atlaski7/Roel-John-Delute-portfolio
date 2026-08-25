@@ -155,7 +155,8 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                 </div>
               </article>
 
-              <article className="arcane-slap-case-study" id="arcane-slap" aria-labelledby="arcane-slap-title">
+              <div className="arcane-slap-project" id="arcane-slap">
+              <article className="arcane-slap-case-study" aria-labelledby="arcane-slap-title">
                 <div className="arcane-slap-cover" aria-hidden="true">
                   <span className="arcane-slap-cover-number">02</span>
                   <Gamepad2 size={76} strokeWidth={1.15} />
@@ -175,6 +176,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                     <li>VFX</li>
                   </ul>
                 </div>
+              </article>
                 <section className="arcane-slap-vfx" aria-labelledby="arcane-slap-vfx-title">
                   <div className="arcane-slap-vfx-heading">
                     <div><p className="eyebrow">Arcane Slap / Work in progress</p><h3 id="arcane-slap-vfx-title">VFX<em>.</em></h3></div>
@@ -199,7 +201,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                     </article>
                   </div>
                 </section>
-              </article>
+              </div>
             </>
           ) : isMedia ? (
             <>
