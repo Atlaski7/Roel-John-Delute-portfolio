@@ -153,6 +153,27 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                   </ul>
                 </div>
               </article>
+
+              <article className="arcane-slap-case-study" id="arcane-slap" aria-labelledby="arcane-slap-title">
+                <div className="arcane-slap-cover" aria-hidden="true">
+                  <span className="arcane-slap-cover-number">02</span>
+                  <Gamepad2 size={76} strokeWidth={1.15} />
+                  <span className="arcane-slap-cover-title">Arcane <b>Slap</b></span>
+                  <span className="arcane-slap-cover-status">Working</span>
+                </div>
+                <div className="arcane-slap-summary">
+                  <div>
+                    <p className="eyebrow">Game development / Project 02</p>
+                    <div className="project-status">Working</div>
+                    <h2 id="arcane-slap-title">Arcane Slap<em>.</em></h2>
+                  </div>
+                  <p>An in-progress game project. Gameplay, visuals, and project details will be added here as development continues.</p>
+                  <ul className="arcane-slap-tags" aria-label="Arcane Slap project details">
+                    <li>In development</li>
+                    <li>Game project</li>
+                  </ul>
+                </div>
+              </article>
             </>
           ) : isMedia ? (
             <>
