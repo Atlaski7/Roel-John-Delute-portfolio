@@ -161,12 +161,12 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                   <span className="arcane-slap-cover-number">02</span>
                   <Gamepad2 size={76} strokeWidth={1.15} />
                   <span className="arcane-slap-cover-title">Arcane <b>Slap</b></span>
-                  <span className="arcane-slap-cover-status">Working</span>
+                  <span className="arcane-slap-cover-status">In Progress</span>
                 </div>
                 <div className="arcane-slap-summary">
                   <div>
                     <p className="eyebrow">Game development / Project 02</p>
-                    <div className="project-status">Working</div>
+                    <div className="project-status">In Progress</div>
                     <h2 id="arcane-slap-title">Arcane Slap<em>.</em></h2>
                   </div>
                   <p>An in-progress game project. Gameplay, visuals, and project details will be added here as development continues.</p>
@@ -179,8 +179,8 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
               </article>
                 <section className="arcane-slap-vfx" aria-labelledby="arcane-slap-vfx-title">
                   <div className="arcane-slap-vfx-heading">
-                    <div><p className="eyebrow">Arcane Slap / Work in progress</p><h3 id="arcane-slap-vfx-title">VFX<em>.</em></h3></div>
-                    <span className="project-status">Working</span>
+                    <div><p className="eyebrow">Arcane Slap / In Progress</p><h3 id="arcane-slap-vfx-title">VFX<em>.</em></h3></div>
+                    <span className="project-status">In Progress</span>
                   </div>
                   <div className="arcane-slap-vfx-grid">
                     <article className="arcane-slap-vfx-card">
