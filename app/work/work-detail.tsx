@@ -58,6 +58,7 @@ const categories = (Object.keys(workDetails) as WorkCategory[]).map((slug) => ({
 }));
 
 const hostedKazamVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/kazam";
+const hostedArcaneSlapVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/arcane-slap";
 
 export function WorkDetailPage({ category }: { category: WorkCategory }) {
   const [dark, setDark] = useState(true);
@@ -171,8 +172,33 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                   <ul className="arcane-slap-tags" aria-label="Arcane Slap project details">
                     <li>In development</li>
                     <li>Game project</li>
+                    <li>VFX</li>
                   </ul>
                 </div>
+                <section className="arcane-slap-vfx" aria-labelledby="arcane-slap-vfx-title">
+                  <div className="arcane-slap-vfx-heading">
+                    <div><p className="eyebrow">Arcane Slap / Work in progress</p><h3 id="arcane-slap-vfx-title">VFX<em>.</em></h3></div>
+                    <span className="project-status">Working</span>
+                  </div>
+                  <div className="arcane-slap-vfx-grid">
+                    <article className="arcane-slap-vfx-card">
+                      <div className="arcane-slap-vfx-card-heading"><p className="eyebrow">VFX / 01</p><h4>Effects Demonstration</h4></div>
+                      <video controls preload="metadata" playsInline>
+                        <source src={`${hostedArcaneSlapVideoBase}/effects-demonstration.mp4`} type="video/mp4" />
+                        Your browser does not support embedded video.
+                      </video>
+                      <a href={`${hostedArcaneSlapVideoBase}/effects-demonstration.mp4`} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                    </article>
+                    <article className="arcane-slap-vfx-card">
+                      <div className="arcane-slap-vfx-card-heading"><p className="eyebrow">VFX / 02</p><h4>Effects</h4></div>
+                      <video controls preload="metadata" playsInline>
+                        <source src={`${hostedArcaneSlapVideoBase}/effects.mp4`} type="video/mp4" />
+                        Your browser does not support embedded video.
+                      </video>
+                      <a href={`${hostedArcaneSlapVideoBase}/effects.mp4`} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                    </article>
+                  </div>
+                </section>
               </article>
             </>
           ) : isMedia ? (
