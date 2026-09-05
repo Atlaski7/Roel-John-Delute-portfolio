@@ -46,7 +46,7 @@ const workDetails: Record<WorkCategory, WorkDetail> = {
   media: {
     number: "05",
     title: "Media",
-    description: "Campaign videos, app showcases, and purposeful edits that bring a clear message to the screen.",
+    description: "Promotional videos, vlogs, and purposeful edits that bring stories to the screen.",
     icon: Play,
     capabilities: ["Campaign videos", "App showcases", "Pacing and transitions", "Final delivery"],
   },
@@ -59,10 +59,14 @@ const categories = (Object.keys(workDetails) as WorkCategory[]).map((slug) => ({
 
 const hostedKazamVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/kazam";
 const hostedArcaneSlapVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/arcane-slap";
+const hostedVlogVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/first-vlog/first-vlog.mp4";
+const mediaTabs = ["Promotion", "Vlogs", "Gameplay", "Podcast", "Streamer"] as const;
+type MediaTab = typeof mediaTabs[number];
 
 export function WorkDetailPage({ category }: { category: WorkCategory }) {
   const [dark, setDark] = useState(true);
   const [isKazamAdOpen, setIsKazamAdOpen] = useState(false);
+  const [activeMediaTab, setActiveMediaTab] = useState<MediaTab>("Promotion");
   const project = workDetails[category];
   const Icon = project.icon;
   const isGameDevelopment = category === "game-development";
@@ -206,19 +210,49 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
           ) : isMedia ? (
             <>
               <div className="work-project-archive">
-                <p className="eyebrow">Featured project / 01</p>
-                <h2>Kazam.</h2>
-                <p>Promotional media for Kazam, a platform connecting kasambahays and homeowners.</p>
-                <a href="#kazam">Watch the project <ArrowUpRight size={17} aria-hidden="true" /></a>
+                <p className="eyebrow">Media collection</p>
+                <h2>Stories in motion.</h2>
+                <p>Explore Kazam&apos;s promotional videos and First Vlog below.</p>
+                <a href="#media-projects">Browse videos <ArrowUpRight size={17} aria-hidden="true" /></a>
               </div>
 
+              <div className="media-collection" id="media-projects">
+                <div className="media-tabs" role="tablist" aria-label="Media categories">
+                  {mediaTabs.map((tab, index) => (
+                    <button
+                      key={tab}
+                      type="button"
+                      role="tab"
+                      id={`media-tab-${tab.toLowerCase()}`}
+                      aria-controls={`media-panel-${tab.toLowerCase()}`}
+                      aria-selected={activeMediaTab === tab}
+                      tabIndex={activeMediaTab === tab ? 0 : -1}
+                      onClick={() => { setIsKazamAdOpen(false); setActiveMediaTab(tab); }}
+                      onKeyDown={(event) => {
+                        let next = index;
+                        if (event.key === "ArrowRight") next = (index + 1) % mediaTabs.length;
+                        else if (event.key === "ArrowLeft") next = (index + mediaTabs.length - 1) % mediaTabs.length;
+                        else if (event.key === "Home") next = 0;
+                        else if (event.key === "End") next = mediaTabs.length - 1;
+                        else return;
+                        event.preventDefault();
+                        setIsKazamAdOpen(false);
+                        setActiveMediaTab(mediaTabs[next]);
+                        document.getElementById(`media-tab-${mediaTabs[next].toLowerCase()}`)?.focus();
+                      }}
+                    >{tab}</button>
+                  ))}
+                </div>
+                {mediaTabs.map((tab) => (
+                  <div key={tab} role="tabpanel" id={`media-panel-${tab.toLowerCase()}`} aria-labelledby={`media-tab-${tab.toLowerCase()}`} hidden={activeMediaTab !== tab} tabIndex={0} className="media-tab-panel">
+                    {activeMediaTab === tab && (tab === "Promotion" ? (
               <article className="kazam-case-study" id="kazam" aria-labelledby="kazam-title">
                 <div className="kazam-cover">
                   <img src="../projects/kazam/kazam-cover.png" alt="Kazam promotional visual with phone and laptop app previews" />
                 </div>
                 <div className="kazam-summary">
                   <div>
-                    <p className="eyebrow">Media / Case study</p>
+                    <p className="eyebrow">Promotion / Case study</p>
                     <h2 id="kazam-title">Kazam<em>.</em></h2>
                   </div>
                   <p>A pair of video pieces that present Kazam&apos;s app experience and its connection between kasambahays and homeowners.</p>
@@ -247,6 +281,30 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                   </article>
                 </div>
               </article>
+                    ) : tab === "Vlogs" ? (
+                      <article className="vlog-project" aria-labelledby="first-vlog-title">
+                        <header className="vlog-project-heading">
+                          <p className="eyebrow">Vlogs / 01</p>
+                          <h2 id="first-vlog-title">First Vlog<em>.</em></h2>
+                        </header>
+                        <div className="kazam-video-card vlog-video-card">
+                          <video controls preload="none" playsInline poster="../projects/first-vlog/first-vlog-cover.jpg" aria-label="First Vlog">
+                            <source src={hostedVlogVideo} type="video/mp4" />
+                            Your browser does not support embedded video.
+                          </video>
+                          <a href={hostedVlogVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                        </div>
+                      </article>
+                    ) : (
+                      <div className="media-empty">
+                        <Play size={28} aria-hidden="true" />
+                        <h2>{tab}</h2>
+                        <p>No projects added yet.</p>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </>
           ) : (
             <div className="work-project-archive">
