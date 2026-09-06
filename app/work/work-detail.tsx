@@ -62,6 +62,7 @@ const hostedArcaneSlapVideoBase = "https://atlaski7.github.io/Roel-John-Delute-p
 const hostedVlogVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/first-vlog/first-vlog.mp4";
 const hostedPeakWithFriendsVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/peak-with-friends/peak-with-friends.mp4";
 const hostedRestartStreamVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/restart-stream-fexr/restart-stream-fexr.mp4";
+const hostedOishiVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/oishi/oishi.mp4";
 const mediaTabs = ["Promotion", "Vlogs", "Gameplay", "Podcast", "Streamer"] as const;
 type MediaTab = typeof mediaTabs[number];
 
@@ -280,6 +281,15 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                       Your browser does not support embedded video.
                     </video>
                     <a href={`${hostedKazamVideoBase}/kazam-homeowners-video.mp4`} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                  </article>
+                  <article className="kazam-video-card">
+                    <div className="kazam-video-heading"><p className="eyebrow">Video 03</p><h3>Oishi Smart C+</h3></div>
+                    <ul className="kazam-tags media-video-tags" aria-label="Oishi production details"><li>AI-Assisted</li><li>Human-Edited</li></ul>
+                    <video controls preload="metadata" playsInline poster="../projects/oishi/oishi-cover.jpg">
+                      <source src={hostedOishiVideo} type="video/mp4" />
+                      Your browser does not support embedded video.
+                    </video>
+                    <a href={hostedOishiVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
                   </article>
                 </div>
               </article>
