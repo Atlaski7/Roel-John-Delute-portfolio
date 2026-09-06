@@ -61,6 +61,7 @@ const hostedKazamVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfo
 const hostedArcaneSlapVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/arcane-slap";
 const hostedVlogVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/first-vlog/first-vlog.mp4";
 const hostedPeakWithFriendsVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/peak-with-friends/peak-with-friends.mp4";
+const hostedRestartStreamVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/restart-stream-fexr/restart-stream-fexr.mp4";
 const mediaTabs = ["Promotion", "Vlogs", "Gameplay", "Podcast", "Streamer"] as const;
 type MediaTab = typeof mediaTabs[number];
 
@@ -213,7 +214,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
               <div className="work-project-archive">
                 <p className="eyebrow">Media collection</p>
                 <h2>Stories in motion.</h2>
-                <p>Explore promotional videos, vlogs, and gameplay videos below.</p>
+                <p>Explore promotional videos, vlogs, gameplay, and streamer content below.</p>
                 <a href="#media-projects">Browse videos <ArrowUpRight size={17} aria-hidden="true" /></a>
               </div>
 
@@ -308,6 +309,20 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                             Your browser does not support embedded video.
                           </video>
                           <a href={hostedPeakWithFriendsVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                        </div>
+                      </article>
+                    ) : tab === "Streamer" ? (
+                      <article className="streamer-project" aria-labelledby="restart-stream-title">
+                        <header className="vlog-project-heading">
+                          <p className="eyebrow">Streamer / 01</p>
+                          <h2 id="restart-stream-title">Restart the Whole Stream?!<em>.</em></h2>
+                        </header>
+                        <div className="kazam-video-card gameplay-video-card">
+                          <video controls preload="none" playsInline poster="../projects/restart-stream-fexr/restart-stream-fexr-cover.jpg" aria-label="Restart the Whole Stream streamer video">
+                            <source src={hostedRestartStreamVideo} type="video/mp4" />
+                            Your browser does not support embedded video.
+                          </video>
+                          <a href={hostedRestartStreamVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
                         </div>
                       </article>
                     ) : (
