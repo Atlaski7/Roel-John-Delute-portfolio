@@ -60,6 +60,7 @@ const categories = (Object.keys(workDetails) as WorkCategory[]).map((slug) => ({
 const hostedKazamVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/kazam";
 const hostedArcaneSlapVideoBase = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/arcane-slap";
 const hostedVlogVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/first-vlog/first-vlog.mp4";
+const hostedPeakWithFriendsVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/peak-with-friends/peak-with-friends.mp4";
 const mediaTabs = ["Promotion", "Vlogs", "Gameplay", "Podcast", "Streamer"] as const;
 type MediaTab = typeof mediaTabs[number];
 
@@ -212,7 +213,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
               <div className="work-project-archive">
                 <p className="eyebrow">Media collection</p>
                 <h2>Stories in motion.</h2>
-                <p>Explore Kazam&apos;s promotional videos and First Vlog below.</p>
+                <p>Explore promotional videos, vlogs, and gameplay videos below.</p>
                 <a href="#media-projects">Browse videos <ArrowUpRight size={17} aria-hidden="true" /></a>
               </div>
 
@@ -293,6 +294,20 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                             Your browser does not support embedded video.
                           </video>
                           <a href={hostedVlogVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                        </div>
+                      </article>
+                    ) : tab === "Gameplay" ? (
+                      <article className="gameplay-project" aria-labelledby="peak-with-friends-title">
+                        <header className="vlog-project-heading">
+                          <p className="eyebrow">Gameplay / 01</p>
+                          <h2 id="peak-with-friends-title">Peak with Friends<em>.</em></h2>
+                        </header>
+                        <div className="kazam-video-card gameplay-video-card">
+                          <video controls preload="none" playsInline poster="../projects/peak-with-friends/peak-with-friends-cover.png" aria-label="Peak with Friends gameplay video">
+                            <source src={hostedPeakWithFriendsVideo} type="video/mp4" />
+                            Your browser does not support embedded video.
+                          </video>
+                          <a href={hostedPeakWithFriendsVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
                         </div>
                       </article>
                     ) : (
