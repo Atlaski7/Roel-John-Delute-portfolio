@@ -63,6 +63,7 @@ const hostedVlogVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/p
 const hostedPeakWithFriendsVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/peak-with-friends/peak-with-friends.mp4";
 const hostedRestartStreamVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/restart-stream-fexr/restart-stream-fexr.mp4";
 const hostedOishiVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/oishi/oishi.mp4";
+const hostedBiotinVideo = "https://atlaski7.github.io/Roel-John-Delute-portfolio/projects/biotin-life-girls/biotin-life-girls.mp4";
 const mediaTabs = ["Promotion", "Vlogs", "Gameplay", "Podcast", "Streamer"] as const;
 type MediaTab = typeof mediaTabs[number];
 
@@ -249,25 +250,10 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                 {mediaTabs.map((tab) => (
                   <div key={tab} role="tabpanel" id={`media-panel-${tab.toLowerCase()}`} aria-labelledby={`media-tab-${tab.toLowerCase()}`} hidden={activeMediaTab !== tab} tabIndex={0} className="media-tab-panel">
                     {activeMediaTab === tab && (tab === "Promotion" ? (
-              <article className="kazam-case-study" id="kazam" aria-labelledby="kazam-title">
-                <div className="kazam-cover">
-                  <img src="../projects/kazam/kazam-cover.png" alt="Kazam promotional visual with phone and laptop app previews" />
-                </div>
-                <div className="kazam-summary">
-                  <div>
-                    <p className="eyebrow">Promotion / Case study</p>
-                    <h2 id="kazam-title">Kazam<em>.</em></h2>
-                  </div>
-                  <p>A pair of video pieces that present Kazam&apos;s app experience and its connection between kasambahays and homeowners.</p>
-                  <ul className="kazam-tags" aria-label="Kazam project details">
-                    <li>Promotional media</li>
-                    <li>App showcase</li>
-                    <li>Video production</li>
-                  </ul>
-                </div>
-                <div className="kazam-videos" aria-label="Kazam videos">
+                <div className="kazam-videos" aria-label="Promotion videos">
                   <article className="kazam-video-card">
                     <div className="kazam-video-heading"><p className="eyebrow">Video 01</p><h3>Kazam Ad Video</h3></div>
+                    <ul className="kazam-tags media-video-tags" aria-label="Kazam Ad Video production details"><li>Editor</li><li>SFX</li></ul>
                     <button className="kazam-video-preview" type="button" onClick={() => setIsKazamAdOpen(true)} aria-label="Play Kazam Ad Video">
                       <img src="../projects/kazam/kazam-cover.png" alt="Kazam promotional visual with phone and laptop app previews" />
                       <span className="kazam-preview-play" aria-hidden="true"><Play size={21} fill="currentColor" /></span>
@@ -276,6 +262,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                   </article>
                   <article className="kazam-video-card">
                     <div className="kazam-video-heading"><p className="eyebrow">Video 02</p><h3>Kazam Homeowners Video</h3></div>
+                    <ul className="kazam-tags media-video-tags" aria-label="Kazam Homeowners Video production details"><li>Editor</li><li>SFX</li><li>AI-Assisted</li></ul>
                     <video controls preload="metadata" playsInline poster="../projects/kazam/kazam-cover.png">
                       <source src={`${hostedKazamVideoBase}/kazam-homeowners-video.mp4`} type="video/mp4" />
                       Your browser does not support embedded video.
@@ -284,15 +271,23 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                   </article>
                   <article className="kazam-video-card">
                     <div className="kazam-video-heading"><p className="eyebrow">Video 03</p><h3>Oishi Smart C+</h3></div>
-                    <ul className="kazam-tags media-video-tags" aria-label="Oishi production details"><li>AI-Assisted</li><li>Human-Edited</li></ul>
+                    <ul className="kazam-tags media-video-tags" aria-label="Oishi production details"><li>AI-Assisted</li><li>Editor</li><li>SFX</li></ul>
                     <video controls preload="metadata" playsInline poster="../projects/oishi/oishi-cover.jpg">
                       <source src={hostedOishiVideo} type="video/mp4" />
                       Your browser does not support embedded video.
                     </video>
                     <a href={hostedOishiVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
                   </article>
+                  <article className="kazam-video-card">
+                    <div className="kazam-video-heading"><p className="eyebrow">Video 04</p><h3>Biotin &amp; Life Girls</h3></div>
+                    <ul className="kazam-tags media-video-tags" aria-label="Biotin and Life Girls production details"><li>AI-Assisted</li><li>Editor</li></ul>
+                    <video controls preload="metadata" playsInline poster="../projects/biotin-life-girls/biotin-life-girls-cover.jpg">
+                      <source src={hostedBiotinVideo} type="video/mp4" />
+                      Your browser does not support embedded video.
+                    </video>
+                    <a href={hostedBiotinVideo} target="_blank" rel="noreferrer">Open video file <Download size={15} aria-hidden="true" /></a>
+                  </article>
                 </div>
-              </article>
                     ) : tab === "Vlogs" ? (
                       <article className="vlog-project" aria-labelledby="first-vlog-title">
                         <header className="vlog-project-heading">
@@ -300,6 +295,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                           <h2 id="first-vlog-title">First Vlog<em>.</em></h2>
                         </header>
                         <div className="kazam-video-card vlog-video-card">
+                          <ul className="kazam-tags media-video-tags" aria-label="First Vlog production details"><li>Editor</li></ul>
                           <video controls preload="none" playsInline poster="../projects/first-vlog/first-vlog-cover.jpg" aria-label="First Vlog">
                             <source src={hostedVlogVideo} type="video/mp4" />
                             Your browser does not support embedded video.
@@ -314,6 +310,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                           <h2 id="peak-with-friends-title">Peak with Friends<em>.</em></h2>
                         </header>
                         <div className="kazam-video-card gameplay-video-card">
+                          <ul className="kazam-tags media-video-tags" aria-label="Peak with Friends production details"><li>Editor</li></ul>
                           <video controls preload="none" playsInline poster="../projects/peak-with-friends/peak-with-friends-cover.png" aria-label="Peak with Friends gameplay video">
                             <source src={hostedPeakWithFriendsVideo} type="video/mp4" />
                             Your browser does not support embedded video.
@@ -328,6 +325,7 @@ export function WorkDetailPage({ category }: { category: WorkCategory }) {
                           <h2 id="restart-stream-title">Restart the Whole Stream?!<em>.</em></h2>
                         </header>
                         <div className="kazam-video-card gameplay-video-card">
+                          <ul className="kazam-tags media-video-tags" aria-label="Restart the Whole Stream production details"><li>Editor</li></ul>
                           <video controls preload="none" playsInline poster="../projects/restart-stream-fexr/restart-stream-fexr-cover.jpg" aria-label="Restart the Whole Stream streamer video">
                             <source src={hostedRestartStreamVideo} type="video/mp4" />
                             Your browser does not support embedded video.
